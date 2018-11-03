@@ -1,0 +1,137 @@
+body{
+	background-image: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-family: Aharoni;
+}
+#overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left:0;
+	background: black;
+	padding: 12% 38%;
+	opacity: 1;
+	transition: 2s;
+}
+#proceed{
+	text-align: center;
+	border-radius: 2px;
+	width: 300px;
+	background: #B20000;
+	color: white;
+	padding: 10px 0 10px 0;
+}
+#title{
+	font-size: 300%;
+	font-family: segoe UI;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+#animate{
+	height: 3px;
+	width: 100%;
+	background: white;
+}
+#animate2{
+	height: 3px;
+	width: 100%;
+	background: #CA6E2D;
+}
+#animate3{
+	height: 3px;
+	width: 100%;
+	background: black;
+}	
+button{
+	background-color: #CA6E2D;
+	width: 50%;
+	color: #B20000;
+	text-shadow: 2px 2px 2px white;
+	cursor: pointer;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-radius: 5px;
+	height: 40px;
+	font-size: 150%;
+	border-style: none;
+	border-top: 2px solid #B93D00;
+	border-right: 2px solid white;
+	border-left: 2px solid white;
+	border-bottom: 2px solid #B93D00;
+	transition: 1s;
+}
+button:hover{
+	background-color: white;
+	color: #CA6E2D;
+}
+#click{
+	font-size: 150%;
+	color: #B20000;
+	text-shadow: 2px 2px 2px yellow;
+}
+#move{
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	visibility: hidden;
+	cursor: pointer;
+}
+#aim{
+	font-size: 200%;
+	padding: 0;
+	height: 80px;
+	color: white;
+	background: #B20000;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+#profile{
+	float: right;
+	position: fixed;
+	right: 0;
+	width: 15%;
+	height: 100%;
+	background: #B20000;
+	color: white;
+	padding-top: 10px;
+	display: none;
+	margin-top: 70px;
+	text-align: center;
+}
+#np{
+	background: white;
+	color: #B20000;
+	font-size: 200%;
+}
+#points{
+	font-size: 150%;
+}
+#restart{
+	width: 100%;
+	margin-top: 10%;
+}
+a{
+	color: #B20000;
+	text-shadow: 2px 2px 2px white;
+}
+a:hover{
+	background-color: white;
+	color: #CA6E2D;
+}
+#final{
+	text-align: center;
+	border-radius: 10px;
+	width: 300px;
+	background: #B20000;
+	color: white;
+	padding: 10px 0 10px 0;
+	margin: 10% auto;
+	display: none;
+}

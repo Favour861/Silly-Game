@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GAME</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="sillygame.css">
+	<script type="text/javascript">
+		
+		function gameSound(){
+			gameSound=new Audio();
+			gameSound.src="sound.mp3";
+			gameSound.play();
+			gameSound.loop=true;
+		}	
+		function game() {
+			gameSound();
+			overlay.style.display="none";
+			move.style.visibility="visible";
+			aim.style.display="block";
+			nam=na.value;
+			lo=loc.value;
+			document.getElementById('user').innerHTML=nam.toUpperCase();
+			document.getElementById('location').innerHTML=lo.toUpperCase();
+			if (na.value==""){
+				document.getElementById('user').innerHTML="Anonymous";
+			}
+			if (loc.value==""){
+				document.getElementById('location').innerHTML="Hidden";
+			}
+			profile.style.display="block";
+			count();
+		
+		}
+		function count() {
+			if(timee.innerHTML>0){
+			timee.innerHTML--;
+			setTimeout(count, 1000);
+			if(timee.innerHTML<=5){
+				timee.style.color="orange";
+			}
+		}
+		else{
+			gameSound.pause();
+			final.style.display="block";
+			aim.style.display="none";
+			profile.style.display="none";
+			move.style.display="none";
+			score.innerHTML=po.innerHTML;
+			player.innerHTML=user.innerHTML;
+			if(po.innerHTML>=600){
+				rate.innerHTML="GREAT";
+				rate.style.color="lightgreen";
+			}
+			if(po.innerHTML>=500 && po.innerHTML < 600){
+				rate.innerHTML="AWESOME";
+				rate.style.color="lightgreen";
+			}
+			if(po.innerHTML>=400 && po.innerHTML<500){
+				rate.innerHTML="EXCELLENT";
+				rate.style.color="lightblue";
+			}
+			if(po.innerHTML>=300 && po.innerHTML<400){
+				rate.innerHTML="GOOD";
+				rate.style.color="yellow";
+			}
+			if(po.innerHTML>=200 && po.innerHTML<300){
+				rate.innerHTML="FAIR";
+				rate.style.color="orange";
+			}
+			if(po.innerHTML<200){
+				rate.innerHTML="POOR <br> <br> TRY AGAIN";
+				rate.style.color="red";
+			}
+		}
+		}
+		function silly(){
+			aero.style.visibility="visible";
+			var top_location = parseInt(Math.floor(Math.random() * 70) + 10) + "%";
+			var left_location = parseInt(Math.random() * 70) + "%";
+			move.style.top=top_location;
+			move.style.left=left_location;
+			click.innerHTML="Try Again!!!";
+			p = Number(po.innerHTML);
+			p+=10;
+			po.innerHTML=p;
+		}
+		function sound(){
+			if(sb.innerHTML=="Disable Sound"){
+				sb.innerHTML="Enable Sound";
+				gameSound.pause();
+			}
+			if(sb.innerHTML=="Enable Sound"){
+				sb.innerHTML="Disable Sound";
+				gameSound();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="overlay">
+		<div id="proceed">
+			<h3 id="title">SILLY GAME</h3>
+			<div id="animate"></div><div id="animate2"></div><div id="animate3"></div>
+			<p>Tell us your name:</p>
+			<input type="text" style="width: 80%; font-size: 15pt; color: #B20000; border-radius: 2px; border-style: none; text-align: center;" id="na"><br>
+			<p>From where are you playing this game</p>
+			<input type="text" style="width: 80%; font-size: 15pt; color: #B20000; border-radius: 2px; border-style: none; text-align: center;" id="loc"><br>
+			<div id="animate"></div><div id="animate2"></div><div id="animate3"></div>
+			<p>CLICK THE BUTTON BELOW TO PROCEED</p>
+			<button onclick="game(); count();">PROCEED</button>
+			<p style="margin-bottom: -10px;">Powered by Favour</p>
+		</div>
+	</div>
+	<div id="aim"><h3>AIM: BRING CURSOR ON THE CAR AND <abbr title="acquire">GARNER</abbr> TEN(10) POINTS</h3></div>
+	<div id="profile">
+		<div id="np"><img src="user.png"><br><span id="user"></span></div>
+		<p><img src="loc.png"><br><span id="location" style="font-size: 100%"></span></p>
+		<div id="animate"></div><div id="animate2"></div><div id="animate3"></div>
+		<p id="points">Points:<br><span id="po">0</span></p>
+		<div id="animate"></div><div id="animate2"></div><div id="animate3"></div>
+		<div id="timer" ><span style="font-size: 200%;" id="timee">31</span><br>Seconds<br>remaining</div>
+		<button onclick="sound()" style="width: 100%; font-size: 150%; margin-top: 10px" id="sb">Disable Sound</button>
+		<a href="sillygame.html"><button id="restart" onclick="restart()">RESTART</button></a>
+		<p style="margin-top: 50px;">Powered by Favour</p>
+	</div>
+	<div id="final">
+		<p id="player"></p>
+		<div id="animate"></div><div id="animate2"></div><div id="animate3"></div>
+		<p>YOUR TIME IS UP!!!</p>
+		<p id="rate" style="font-size: 200%; color: green;"></p>
+		<p>Your score is:<br></p>
+		<p id="score" style="font-size: 200%;"></p>
+		<a href="sillygame.html"><button id="restart" onclick="restart()">RESTART</button></a>
+	</div>
+	<div id="move" onmouseover="silly()">
+		<img id="aero" src="aero.png" style="visibility: hidden"><br>
+		<img src="car.png" style="margin-left: 30px;"><br>
+		<span id="click">CLICK ME!!! &#9785;</span>
+	</div>
+</body>
+</html>
